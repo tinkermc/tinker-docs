@@ -7,7 +7,6 @@ The docs site for Tinker, built with [Vocs](https://vocs.dev). Lives at **docs.t
 ### Run it on your computer
 
 ```bash
-cd tinkermc-docs
 npm install      # first time only
 npm run dev      # then open http://localhost:5173
 ```
