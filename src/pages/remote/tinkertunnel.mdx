@@ -1,0 +1,66 @@
+---
+title: Manage from anywhere with Tinker Connection Tunnel
+description: Reach your Agent securely when you're away from home.
+showAskAi: false
+---
+
+# Manage from anywhere with Tinker Connection Tunnel
+
+Tinker Connection Tunnel lets you reach Tinker Agent over the internet so you can use Tinker Dash while away from home. It is included with Tinker Plus and does not require you to open or forward a port on your router.
+
+:::tip
+Connection Tunnel is for remote management. Your Minecraft server players need to connect to your normal Minecraft server address and port.
+:::
+
+## Before you begin
+
+Make sure you have:
+
+- Tinker Dash installed on the PC you use away from home
+- Tinker Agent running on your server PC
+- An active Tinker Plus subscription
+- A working internet connection on both PCs
+
+Have read the following notes:
+:::danger[***Never* open port `7122` to the public**]
+Tinker Agent listens on port `7122`. Do not forward this port, create a public firewall rule for it, or expose it through a reverse proxy.
+
+The Connection Tunnel provides the remote connection without making port `7122` directly accessible from the internet.
+:::
+
+## Turn on the tunnel
+
+1. Open Tinker Dash and connect to the Agent as usual.
+2. Open the Agent or account settings where remote access is listed.
+3. Enable Tinker Connection Tunnel.
+4. Follow any prompts to authorize the Agent with your Tinker account.
+5. Keep the Agent PC running and connected to the internet.
+
+Once the tunnel is available, Tinker Dash will use it when you connect remotely.
+
+## Manage your server remotely
+
+With the tunnel connected, you can use the same Dash features as when you are on your local network:
+
+- View and enter server commands in the console
+- Start, stop, and restart servers
+- Manage players
+- Change server settings
+- Use world tools
+
+You do not need to enter the Agent's local address or port while the tunnel is active.
+
+## Troubleshooting
+
+### The tunnel is not available
+
+- Confirm that Tinker Plus is active on your account.
+- Confirm that the Agent is running and connected to the internet.
+- Reconnect Tinker Dash and check for a tunnel setup prompt.
+- Restart Tinker Dash if the remote access status does not update.
+
+### Dash says Lost connection
+
+Check the internet connection on both the Agent PC and the PC running Dash. If the server PC recently restarted, wait for Tinker Agent to start and reconnect, then try again.
+
+If you need free remote access instead, you can set up [Tailscale](/remote/tailscale).
