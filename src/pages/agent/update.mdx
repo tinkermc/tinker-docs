@@ -1,14 +1,36 @@
 ---
 title: Update the Agent
-description: Get the newest version of Tinker Agent.
+description: Install a newer Tinker Agent build while keeping your servers.
 showAskAi: false
 ---
 
 # Update the Agent
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Use the same deployment script that you used to install Tinker Agent. It updates the Agent on the server PC; it does not replace Tinker Dash.
 
-:::note[To write]
-- Re-running the install command updates it
-- Servers are saved and stopped first
+## Before updating
+
+- Let anyone playing know that the server will be unavailable during the update.
+- Make a backup of important worlds and configuration files before changing software.
+- Keep your current Agent address and token available. Never share the token publicly.
+- Use the same trusted Tinker Agent repository and computer you used for installation.
+
+## Run the deployment script again
+
+Open a terminal in the root of the Tinker Agent repository and run the command with the SSH user and address for your server PC:
+
+```bash
+./scripts/deploy.sh USER@SERVER_IP
+```
+
+For example:
+
+```bash
+./scripts/deploy.sh alex@192.168.1.50
+```
+
+The script installs the newer Agent build. Your server files are kept in the Tinker servers folder; the update process may stop running servers while it replaces the Agent. Wait for the script to confirm that the Agent is running, then reconnect from Dash. If the Agent address changed, update it in Dash's [Connection settings](/dash/connect).
+
+:::warning
+Do not power off the server PC while the update is running. If the script reports an error, save the final error message (but redact passwords and tokens) and use the [troubleshooting guide](/agent/troubleshooting).
 :::

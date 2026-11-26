@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vocs dev",
     "build": "vocs build",
-    "preview": "vocs preview"
+    "preview": "vocs preview",
+    "writer": "vite --config writer/vite.config.ts --host 127.0.0.1",
+    "writer:desktop": "concurrently -k \"npm:writer\" \"wait-on http://127.0.0.1:5174 && electron .\"",
+    "writer:win": "npm run build:writer && electron-builder --win nsis",
+    "build:writer": "vite build --config writer/vite.config.ts"
   },
   "dependencies": {
     "react": "~19.3.1",
@@ -14,12 +18,32 @@
     "vocs": "latest",
     "waku": "1.0.0-rc.5"
   },
+  "main": "writer/main.cjs",
+  "build": {
+    "appId": "com.tinkermc.docswriter",
+    "productName": "Tinker Docs Writer",
+    "files": [
+      "writer-dist/**",
+      "writer/main.cjs",
+      "writer/preload.cjs"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6",
+    "concurrently": "^10.0.7",
+    "electron": "^45.5.0",
+    "electron-builder": "^26.18.0",
     "typescript": "^5",
-    "vite": "^8"
+    "vite": "^8",
+    "wait-on": "^9.5.1"
   }
 }

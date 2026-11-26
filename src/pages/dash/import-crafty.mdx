@@ -1,15 +1,24 @@
 ---
 title: Import from Crafty Controller
-description: Move existing servers into Tinker.
+description: Copy an existing Minecraft server into Tinker Agent.
 showAskAi: false
 ---
 
 # Import from Crafty Controller
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+You can import a server managed by Crafty Controller, or choose its server folder directly. Tinker imports a copy into the Agent's server directory; the original folder is left in place.
 
-:::note[To write]
-- Automatic Crafty search vs. picking a folder
-- Stop the server in Crafty first
-- The original is copied, never changed
-:::
+## Prepare the server
+
+1. In Crafty Controller, stop the server you want to move.
+2. Wait until Crafty shows that it has fully stopped. This prevents files from changing while they are copied.
+3. Make a separate backup of important world and configuration files before importing.
+
+## Import it in Dash
+
+1. In Tinker Dash, choose **Import server**.
+2. Let Dash search for Crafty servers if that option is available, or browse to the server folder yourself.
+3. Select the folder that contains the Minecraft server files, review the detected details, and confirm the import.
+4. Wait while Agent copies the files and adds the server to its list.
+
+After the import, start the copy from Tinker Dash and check that the world and settings look right before removing or changing anything in Crafty. Importing does not uninstall Crafty or delete its original server. If the folder is not detected, check that you selected the actual server folder, not just Crafty's parent folder, and contact [Support](/help/support) with the error message.

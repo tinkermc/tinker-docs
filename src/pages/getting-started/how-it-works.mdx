@@ -1,16 +1,23 @@
 ---
-title: How Tinker works
-description: How Tinker Dash and Tinker Agent talk to each other.
+title: "How Tinker works"
+description: How Tinker Dash and Tinker Agent work together.
 showAskAi: false
 ---
-
 # How Tinker works
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Tinker separates the app you use from the service that runs your Minecraft servers:
 
-:::note[To write]
-- Dash = app you click in; Agent = runs the servers 24/7
-- One Agent can run many servers
-- Dash and Agent can be on the same machine
-- The token (password) and port 7122
-:::
+- **Tinker Dash** is the desktop app. You use it to manage servers, read console output, and perform available server tasks.
+- **Tinker Agent** runs on the Linux server PC. It starts and watches the Minecraft server processes and works with their files.
+
+Dash sends requests to Agent over your network. One Dash connects to one Agent at a time, and one Agent can manage multiple Minecraft servers. Dash and Agent can also run on the same computer for testing.
+
+## Address, port, and token
+
+When you connect, Dash needs the Agent's network address and port. The default Agent port is `7122`. The setup also creates a private token, which works like a password: the Agent checks it before allowing Dash to manage servers.
+
+Keep the token secret. The Agent is intended for your trusted network; do not forward port `7122` from your router to the public internet. To connect from outside your home,  use [Connection Tunnel](/remote/tinkertunnel) (recommend, requires Tinker Plus) or [Tailscale](/remote/tailscale).
+
+The Agent PC must stay on and connected to the network for Dash to manage its servers. The Minecraft server can be offline while the Agent remains available.
+
+

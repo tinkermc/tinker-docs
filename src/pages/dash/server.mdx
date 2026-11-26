@@ -6,10 +6,39 @@ showAskAi: false
 
 # Server tab
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+The **Server** tab is where you control a server and check how it's doing. Pick a server in Dash, then open **Server**.
 
-:::note[To write]
-- Start / Stop / Restart and the 'players online' warning
-- CPU, memory, players, uptime
-- Worlds always save before stopping
+## Start, stop and restart
+
+- **Start** launches the server. The first time you start a new server, you'll be asked to accept the Minecraft EULA.
+- **Stop** saves the world and shuts the server down cleanly.
+- **Restart** stops the server and starts it again.
+
+:::warning[Players online]
+If players are online when you stop or restart, Dash warns you first so you don't kick anyone by accident. Let them know before you continue.
 :::
+
+## Worlds always save before stopping
+
+Tinker always saves your worlds before the server stops. This includes when you press **Stop** or **Restart**, and when the server PC shuts down normally. You don't need to run `save-all` yourself first.
+
+:::note
+Saving can't happen if the server PC loses power suddenly or crashes. For extra safety, keep backups of your worlds.
+:::
+
+## Live stats
+
+While the server is running, the Server tab shows live:
+
+| Stat | What it tells you |
+| --- | --- |
+| **CPU** | How hard the server PC is working for this server. |
+| **Memory** | How much RAM the server is using. |
+| **Players** | How many players are online right now. |
+| **Uptime** | How long the server has been running since it last started. |
+
+If CPU or memory stays high and the [console](/dash/console) shows `Can't keep up!` warnings, the server PC may be struggling. Try fewer players, a smaller view distance, or [pre-generating chunks](/dash/world).
+
+## Common settings
+
+The Server tab also shows your most-used server settings, so you can change them without editing config files. Some changes only apply after a restart.

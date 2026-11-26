@@ -1,16 +1,26 @@
 ---
-title: Requirements
+title: "Requirements"
 description: What you need before installing Tinker.
 showAskAi: false
 ---
-
 # Requirements
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Tinker uses two apps on two computers, though Dash and Agent can run on the same computer for a small test setup.
 
-:::note[To write]
-- Dash: Windows PC
-- Agent: Linux machine (an old PC works)
-- Java is installed for you by the Agent installer
-- Supported servers: Vanilla, Paper, Fabric, NeoForge
-:::
+## Tinker Dash
+
+- A Windows, MacOS, or Linux PC for the current desktop beta.
+- Internet access to download Dash and to fetch server software or updates when needed.
+
+## Tinker Agent
+
+- A Linux computer to host the Agent and Minecraft servers. An older desktop or mini PC can work if it has enough memory and storage for your chosen server and players.
+- A Linux user account with SSH access and permission to approve administrator (`sudo`) installation steps.
+- A stable network connection. Keep the computer on whenever you want the server to be available.
+- Free disk space for the Agent, Java, the Minecraft server, worlds, and backups.
+
+The Agent installer sets up Java. You do not need to install Java by hand for the normal setup. Available server types include Vanilla, Paper, and Fabric; the exact Minecraft versions depend on the build.
+
+For access only at home, put both computers on your trusted network. For remote management, use [Connection Tunnel](/remote/tinkertunnel) (recommend, requires Tinker Plus) or [Tailscale](/remote/tailscale). Do not expose Agent port `7122` directly to the internet.
+
+See the [quick start](/getting-started/quick-start) for the setup steps.

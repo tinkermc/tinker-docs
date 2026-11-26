@@ -6,10 +6,22 @@ showAskAi: false
 
 # Connect to your Agent
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Connect Dash to the Agent running on your server PC. You need the Agent's address, port, and token from the [installation step](/agent/install).
 
-:::note[To write]
-- Connection tab: entering address + token
-- Saved Agents, Disconnect, Sign out
-- What 'Lost connection' / auto-reconnect means
-:::
+1. Open Tinker Dash and go to **Connection**.
+2. Enter the Agent's address. On your home network, use its local IP address, such as `192.168.1.50`.
+3. Enter port `7122`, unless your Agent setup gave you a different port.
+4. Paste the token exactly as printed during setup. Treat it like a password.
+5. Choose **Connect** and wait for the connection status to confirm.
+
+Once connected, Dash can show the servers managed by that Agent. If you have more than one Agent, switch to its saved connection details before connecting. Dash connects to one Agent at a time.
+
+## Saved Agents and disconnecting
+
+If Dash offers to save an Agent, save only on a device you control. A saved Agent makes it easier to reconnect; it does not make the token safe to share. Use **Disconnect** when you want Dash to stop managing the current Agent. Signing out of your Tinker account is separate from disconnecting from an Agent.
+
+## Lost connection
+
+If Dash shows **Lost connection**, it cannot currently reach the Agent. Confirm the server PC is on, the Agent service is running, and both computers can reach each other. Recheck the address, port, and token. Dash may reconnect when the network or Agent becomes available again; wait briefly, then reconnect if the status does not recover.
+
+For remote access, use [Tailscale](/remote/tailscale) or [Connection Tunnel](/remote/tinkertunnel). Do not open port `7122` to the public internet. If you still cannot connect, see [troubleshooting](/agent/troubleshooting).

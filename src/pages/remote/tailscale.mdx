@@ -6,10 +6,50 @@ showAskAi: false
 
 # Manage from anywhere with Tailscale
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+[Tailscale](https://tailscale.com) is a free app that links your devices into a private network. With it, Tinker Dash can reach your Agent from anywhere, without opening any ports on your router.
 
-:::note[To write]
-- Install Tailscale on both PCs
-- Use the Tailscale IP in Dash
-- Never open port 7122 to the internet
+:::danger[***Never* open port `7122` to the internet**]
+Tinker Agent listens on port `7122`. Don't forward it on your router or expose it any other way. Tailscale gives you remote access without doing this.
 :::
+
+## Set up Tailscale
+
+::::steps
+
+### Install Tailscale on the server PC
+
+Install Tailscale on the PC running Tinker Agent and sign in. Follow the [Linux install guide](https://tailscale.com/download/linux).
+
+### Install Tailscale on your Dash PC
+
+Install Tailscale on the Windows PC where you use Tinker Dash, and sign in with the **same account**. Get it from [tailscale.com/download](https://tailscale.com/download).
+
+### Find the server PC's Tailscale IP
+
+On the server PC, run:
+
+```bash
+tailscale ip -4
+```
+
+It prints an address starting with `100.`, for example `100.64.12.34`. You can also find it in the Tailscale admin console.
+
+### Connect Dash with the Tailscale IP
+
+In Dash, [connect to your Agent](/dash/connect) as usual, but use the Tailscale IP as the address. The port (`7122`) and token stay the same.
+
+::::
+
+Keep Tailscale running on both PCs. When you're home, you can keep using the Tailscale IP or switch back to the local one.
+
+:::note
+Tailscale is only for managing the server with Dash. Players still join using your normal Minecraft server address.
+:::
+
+## Troubleshooting
+
+- **Can't connect:** check both PCs show as connected in Tailscale and are signed in to the same account.
+- **Worked before, now doesn't:** the server PC may have been signed out of Tailscale. Run `tailscale status` on it.
+- Still stuck? See [Agent troubleshooting](/agent/troubleshooting).
+
+Want remote access without setting anything up? Try the [Tinker Connection Tunnel](/remote/tinkertunnel) with Tinker Plus.

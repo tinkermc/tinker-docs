@@ -1,16 +1,24 @@
 ---
 title: Agent troubleshooting
-description: Fix common Agent install and connection problems.
+description: Fix common Tinker Agent install and connection problems.
 showAskAi: false
 ---
 
 # Agent troubleshooting
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Use the symptom below to narrow down what is wrong. Keep your Agent token private; do not include it in screenshots or support messages.
 
-:::note[To write]
-- Can't log in over SSH
-- Agent not reachable from Dash (firewall, wrong IP)
-- Wrong token
-- Use a table: what you see → how to fix it
-:::
+| What you see | What to check |
+| --- | --- |
+| `Permission denied` when running the deployment script | From the Agent repository, run `chmod +x scripts/deploy.sh scripts/install.sh`, then try again. |
+| The script says Go or SSH is missing | Install Go and OpenSSH on the computer where you run the deployment script. On Windows, run it in Git Bash. |
+| SSH cannot connect or asks for the wrong password | Confirm the server PC is on, the username and local IP are correct, and SSH is enabled on Linux. First test `ssh USER@SERVER_IP` directly. |
+| Dash says **Lost connection** | Make sure the Agent PC is on and connected to the same network. Recheck the address, port `7122`, and token in [Connection settings](/dash/connect). |
+| Dash reports an authentication or token error | Copy the full token printed after installation, without extra spaces. If you no longer have it, use the trusted Agent setup instructions to rotate or regenerate it; do not guess or share it. |
+| Dash cannot reach the Agent, but SSH works | Check that the Agent service is running and that the computer's firewall permits port `7122` from your trusted private network. Do not solve this by opening the port to the internet. |
+| Remote access stops working away from home | Check that Tailscale or Connection Tunnel is online on both computers. Do not use router port forwarding for port `7122`. |
+| An update stops with an error | Keep the last error lines, remove any token or password, and ask for help in [Support](/help/support). |
+
+## What to include when asking for help
+
+Share your Dash and Agent versions, Linux distribution, the step that failed, and the exact error text. You can share a redacted screenshot or the relevant Agent service logs. **Never send your token, password, private key, or a public link to your server.** See [Get help](/help/support).

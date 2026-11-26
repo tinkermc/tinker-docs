@@ -1,16 +1,43 @@
 ---
-title: Install the Agent
-description: Set up Tinker Agent on your server PC with one command.
+title: "Install the Agent"
+description: Set up Tinker Agent on your server PC.
 showAskAi: false
 ---
-
 # Install the Agent
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+Tinker Agent runs on the Linux computer that hosts your Minecraft server. For the current beta setup, the Agent project provides a deployment script that installs and starts the service. You will need an account with permission to use SSH on that computer and to approve administrator (`sudo`) actions.
 
-:::note[To write]
-- The one install command
-- What it sets up: Java, always-on service, firewall, token
-- Where to find the address and token it prints at the end
-- Screenshot of a successful install
+## Before you start
+
+- Make sure the server PC is running a supported Linux distribution and is on your home network.
+- Find its local IP address and the Linux account name you will use over SSH.
+- On the computer where you run the deployment script, install Go and OpenSSH, and clone the Tinker Agent repository using the instructions you received with your beta access.
+- On Windows, use Git Bash for the script. On macOS or Linux, use a terminal.
+
+:::warning[Beta installation]
+The deployment script is distributed with the Tinker Agent source repository. Only run a script from the official Tinker repository or a source you trust. If your beta build came with a different installer, follow the instructions bundled with that build.
 :::
+
+## Install
+
+From the root of the Tinker Agent repository, replace the example username and address with your own, then run:
+
+```bash
+./scripts/deploy.sh USER@SERVER_IP
+```
+
+For example, if your Linux user is `alex` and the server PC is `192.168.1.50`:
+
+```bash
+./scripts/deploy.sh alex@192.168.1.50
+```
+
+The script connects over SSH, builds and copies the Agent, and sets it up as a background service. It may ask for your Linux account password and then your `sudo` password. Nothing appears while you type a password; press Enter when you are done. The first setup can take a few minutes while it installs Java and other required packages.
+
+When it finishes, it prints the Agent address, port, and a generated token. Save the token in a password manager or another private place. You will need it to connect Dash. Do not post it in chat, screenshots, or bug reports.
+
+## Keep the Agent private
+
+The Agent uses port `7122` by default. Keep it limited to your trusted local network. **Do not forward port `7122` on your router or expose it to the public internet.** For access away from home, use [Tailscale](/remote/tailscale) or the [Tinker Connection Tunnel](/remote/tinkertunnel) when it is available to your account.
+
+Next, [connect Dash to the Agent](/dash/connect). If the install stops, check [Agent troubleshooting](/agent/troubleshooting).

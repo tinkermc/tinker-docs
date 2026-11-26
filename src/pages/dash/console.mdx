@@ -6,10 +6,40 @@ showAskAi: false
 
 # Console
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+The **Console** shows your server's log as it happens and lets you run server commands, just like typing into the server window. Lines are colour-coded by type, so warnings and errors stand out.
 
-:::note[To write]
-- Filters, search, copy, download, clear
-- Command history (↑) and quick commands
-- Adding / removing your own quick commands
+## Read the log
+
+- **Filters** show only the lines you care about, such as warnings or errors.
+- **Search** finds lines that contain a word, like a player's name.
+- **Copy** copies the log so you can paste it somewhere, such as a bug report.
+- **Download** saves the log as a file.
+- **Clear** empties the console view. It doesn't delete the server's log files.
+
+:::tip
+When asking for help, use the **Errors** or **Warnings** filter to find the problem quickly, then copy the lines around it.
 :::
+
+## Run commands
+
+Type a command in the box at the bottom and press **Enter**. You don't need the leading `/`. For example:
+
+```
+say Restarting in 5 minutes
+```
+
+Press **↑** to bring back commands you've already run, and **↓** to move forward again.
+
+## Quick commands
+
+Quick commands are one-click buttons for commands you use often, like `save-all` or `time set day`.
+
+### Add a quick command
+
+1. Choose the option to add a quick command.
+2. Enter the command, and give it a name if asked.
+3. Save it. It now appears with your other quick commands.
+
+### Remove a quick command
+
+Open the quick command's options and choose remove. This only removes the button; it doesn't affect your server.

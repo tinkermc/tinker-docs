@@ -6,10 +6,30 @@ showAskAi: false
 
 # World tools
 
-{/* TODO(Tommy): replace the note below with the real page. Delete this comment when done. */}
+The **World** tab has tools for your server's world: copying the seed, setting the world border, and pre-generating chunks.
 
-:::note[To write]
-- Copying the seed
-- Editing the world border
-- Chunky: start, pause, continue, progress
+## Copy the seed
+
+The seed is the code Minecraft used to generate your world. Copy it to share with friends or to load the same world in singleplayer.
+
+## World border
+
+The world border is the edge of the playable map. Players can't go past it.
+
+1. Open the world border settings.
+2. Enter the size you want.
+3. Save. The new border applies to the running server.
+
+:::tip
+A border keeps your world from growing forever, which saves disk space and keeps the server faster. Set it before [pre-generating chunks](#pre-generate-chunks-with-chunky) so you only generate what's inside it.
 :::
+
+## Pre-generate chunks with Chunky
+
+Minecraft creates new land as players explore, which can cause lag. Chunky generates that land ahead of time so exploring stays smooth.
+
+- **Start** begins generating chunks.
+- **Pause** stops for now, for example while friends are playing.
+- **Continue** carries on from where it paused.
+
+A progress bar shows how far along it is. Pre-generating a large world can take a long time and uses a lot of CPU, so it's best to run it when nobody is playing.
